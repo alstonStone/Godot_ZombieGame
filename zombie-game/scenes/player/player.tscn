@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dfc8vka0v2go6" path="res://scenes/player/player_assets/Player_idle.png" id="1_8afob"]
 [ext_resource type="Script" uid="uid://b7rxmkaba50ml" path="res://scenes/player/player.gd" id="1_gmlin"]
-[ext_resource type="PackedScene" uid="uid://5a2jyy42ixwp" path="res://scenes/weapon/pistol/pistol.tscn" id="2_dovo2"]
+[ext_resource type="PackedScene" uid="uid://beuq6ba73vi01" path="res://scenes/weapon/equiped_weapon.tscn" id="3_gmlin"]
 
 [sub_resource type="Animation" id="Animation_8afob"]
 length = 0.001
@@ -353,5 +353,5 @@ shape = SubResource("CapsuleShape2D_neqkb")
 [node name="WeaponPivot" type="Marker2D" parent="." unique_id=1374903908]
 position = Vector2(0, -12)
 
-[node name="Pistol" parent="WeaponPivot" unique_id=1610399787 instance=ExtResource("2_dovo2")]
+[node name="EquipedWeapon" parent="WeaponPivot" unique_id=115650295 instance=ExtResource("3_gmlin")]
 position = Vector2(11, 0)

@@ -2,20 +2,5 @@
 
 [ext_resource type="Script" uid="uid://xc7qrcdbucsh" path="res://scenes/weapon/weapon.gd" id="1_l3xq3"]
 
-[sub_resource type="Animation" id="Animation_jej8l"]
-resource_name = "idle"
-
-[sub_resource type="Animation" id="Animation_l3xq3"]
-resource_name = "shoot"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_jej8l"]
-_data = {
-&"idle": SubResource("Animation_jej8l"),
-&"shoot": SubResource("Animation_l3xq3")
-}
-
-[node name="Weapon" type="Sprite2D" unique_id=1610399787]
+[node name="Weapon" type="Node2D" unique_id=2065830709]
 script = ExtResource("1_l3xq3")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1155194019]
-libraries/ = SubResource("AnimationLibrary_jej8l")

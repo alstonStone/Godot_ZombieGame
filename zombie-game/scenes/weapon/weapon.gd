@@ -1,11 +1,13 @@
 class_name Weapon
-extends Sprite2D
+extends Node2D
 
 signal shot
-
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
+signal reloaded
 
 
 func shoot() -> void:
-	animation_player.play("shoot")
 	shot.emit()
+
+
+func reload() -> void:
+	reloaded.emit()
