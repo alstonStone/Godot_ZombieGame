@@ -17,6 +17,8 @@ func _process(delta: float) -> void:
 	#if state != State.Dying:
 	if Input.is_action_pressed("shoot"):
 		shoot()
+	if Input.is_action_just_pressed("reload"):
+		reload()
 	var direction := Input.get_vector("move_left","move_right","move_up","move_down").normalized()
 	velocity = direction * speed * delta
 	move_and_slide()
@@ -47,3 +49,8 @@ func shoot() -> void:
 	var weapon:= equiped_weapon.current_weapon
 	if  weapon != null and weapon is Weapon:
 		weapon.shoot()
+
+func reload() -> void:
+	var weapon:= equiped_weapon.current_weapon
+	if  weapon != null and weapon is Weapon:
+		weapon.reload()

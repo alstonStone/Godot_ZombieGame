@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://fplcsfaatrvs" path="res://scenes/zombie/zombie_1/zombie_1.tscn" id="2_sl2e5"]
 
 [node name="World" type="Node2D" unique_id=760330004]
+y_sort_enabled = true
 
 [node name="Player" parent="." unique_id=268666547 instance=ExtResource("1_dphjl")]
 position = Vector2(320, 192)

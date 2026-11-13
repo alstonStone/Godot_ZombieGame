@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b675u5x5ahffw" path="res://scenes/weapon/pistol/pistol.gd" id="2_asjjn"]
 [ext_resource type="Texture2D" uid="uid://bnc4vm2x4ue66" path="res://scenes/weapon/pistol/Pistol_Shoot.png" id="2_fixbi"]
 [ext_resource type="AudioStream" uid="uid://r87me8sukaa6" path="res://scenes/weapon/pistol/pistol_shot.wav" id="3_asjjn"]
+[ext_resource type="AudioStream" uid="uid://dk6ull8cosklb" path="res://scenes/weapon/pistol/pistol_reload.wav" id="4_1pbgn"]
 
 [sub_resource type="Animation" id="Animation_asjjn"]
 length = 0.001
@@ -89,6 +90,59 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_faeqi"]
+resource_name = "reload"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GunAudioStreamPlayer:stream")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_1pbgn")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GunAudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GunAudioStreamPlayer:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [10.0]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"set_can_shoot_true"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_1pbgn"]
@@ -183,6 +237,7 @@ tracks/6/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jej8l"]
 _data = {
 &"RESET": SubResource("Animation_asjjn"),
+&"reload": SubResource("Animation_faeqi"),
 &"shoot": SubResource("Animation_1pbgn")
 }
 
@@ -204,5 +259,7 @@ volume_db = -15.0
 
 [node name="FireRateTimer" type="Timer" parent="." unique_id=939375727]
 one_shot = true
+
+[node name="ReloadTimer" type="Timer" parent="." unique_id=284848411]
 
 [connection signal="timeout" from="FireRateTimer" to="." method="_on_fire_rate_timer_timeout"]

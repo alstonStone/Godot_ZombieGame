@@ -2,8 +2,9 @@ class_name Pistol
 extends Weapon
 
 var damage: int = 1
-var fire_rate: float = 50.0 # shots per second
+var fire_rate: float = 6.0 # shots per second
 var max_fire_rate: float = 6.0 # max rate so animation works
+var reload_rate: float = 1.0
 var max_bullets: int = 12
 var can_shoot: bool = true
 @onready var bullets_left: int = max_bullets
@@ -28,6 +29,8 @@ func shoot() -> void:
 
 
 func reload() -> void:
+	can_shoot = false
+	fire_rate_timer.stop()
 	bullets_left = max_bullets
 	animation_player.play("reload")
 	reloaded.emit()
@@ -35,3 +38,7 @@ func reload() -> void:
 
 func _on_fire_rate_timer_timeout() -> void:
 	can_shoot = true
+
+func set_can_shoot_true() -> void:
+	can_shoot = true
+	

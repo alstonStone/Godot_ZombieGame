@@ -385,9 +385,9 @@ _data = {
 &"run": SubResource("Animation_afcqf")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j16pb"]
-radius = 4.0
-height = 16.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rbovr"]
+radius = 3.299042
+height = 10.0
 
 [node name="Zombie1" type="CharacterBody2D" unique_id=1699939132]
 
@@ -402,5 +402,6 @@ offset = Vector2(-16, -32)
 hframes = 6
 
 [node name="Zombie1BodyCollisionShape" type="CollisionShape2D" parent="." unique_id=1725161301]
-position = Vector2(0, -8)
-shape = SubResource("CapsuleShape2D_j16pb")
+position = Vector2(0, -4)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_rbovr")
