@@ -2,7 +2,7 @@ class_name Pistol
 extends Weapon
 
 var damage: int = 1
-var fire_rate: float = 6.0 # shots per second
+var fire_rate: float = 2.0 # shots per second
 var max_fire_rate: float = 6.0 # max rate so animation works
 var reload_rate: float = 1.0
 var max_bullets: int = 12

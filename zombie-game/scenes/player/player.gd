@@ -7,7 +7,7 @@ extends CharacterBody2D
 @onready var player_sprite: Sprite2D = $PlayerSprite
 
 
-@export var speed: int = 5000
+@export var speed: int = 50
 
 
 
@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("reload"):
 		reload()
 	var direction := Input.get_vector("move_left","move_right","move_up","move_down").normalized()
-	velocity = direction * speed * delta
+	velocity = direction * speed 
 	move_and_slide()
 	play_moving_animation(direction)
 	aim_at(get_global_mouse_position())
