@@ -1,8 +1,11 @@
 class_name Pistol
 extends Weapon
 
+
+
+
 var damage: int = 1
-var fire_rate: float = 2.0 # shots per second
+var fire_rate: float = 20.0 # shots per second
 var max_fire_rate: float = 6.0 # max rate so animation works
 var reload_rate: float = 1.0
 var max_bullets: int = 12
@@ -22,7 +25,7 @@ func shoot() -> void:
 		can_shoot = false
 		fire_rate_timer.start()
 		animation_player.play("shoot",-1,fire_rate)
-		shot.emit()
+		shot.emit(self.global_position,get_global_mouse_position(),damage)
 		print("shoot over write from child pistol class")
 	else:
 		animation_player.queue("empty")

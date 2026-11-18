@@ -1,7 +1,7 @@
 class_name Weapon
 extends Node2D
 
-signal shot
+signal shot(start_pos:Vector2 ,target_pos: Vector2, damage: int)
 signal reloaded
 
 

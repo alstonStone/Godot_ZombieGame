@@ -1,6 +1,8 @@
 class_name Player
 extends CharacterBody2D
 
+signal shot(start_pos:Vector2 ,target_pos: Vector2, damage: int)
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var weapon_pivot: Marker2D = $WeaponPivot
 @onready var equiped_weapon: EquipedWeapon = $WeaponPivot/EquipedWeapon
@@ -54,3 +56,13 @@ func reload() -> void:
 	var weapon:= equiped_weapon.current_weapon
 	if  weapon != null and weapon is Weapon:
 		weapon.reload()
+
+
+#func equip_weapon(weapon: Weapon) -> void:
+	#equiped_weapon.current_weapon = weapon
+	#equiped_weapon.shot.connect(_on_weapon_shot)
+
+
+func _on_weapon_shot(start_pos: Vector2, target_pos: Vector2, damage: int) -> void:
+	print("player shot")
+	shot.emit(start_pos,target_pos,damage)

@@ -390,6 +390,8 @@ radius = 3.299042
 height = 10.0
 
 [node name="Zombie1" type="CharacterBody2D" unique_id=1699939132]
+collision_layer = 4
+collision_mask = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=111623545]
 libraries/ = SubResource("AnimationLibrary_afcqf")
